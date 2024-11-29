@@ -1,0 +1,44 @@
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-heart {
+  fill: var(--red);
+  width: 60px;
+  height: 60px;
+  transform: translateX(-20%);
+  animation: heart 3s infinite linear;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(0.95) translateX(-50%);
+  }
+  25% {
+    transform: scale(1.05) translateX(0%);
+  }
+  50% {
+    transform: scale(0.95) translateX(50%);
+  }
+  75% {
+    transform: scale(1.05) translateX(0%);
+  }
+  100% {
+    transform: scale(0.95) translateX(-50%);
+  }
+}
+
+.icon-error {
+}
