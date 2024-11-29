@@ -2,6 +2,12 @@
 
 react 최적화 공부를 위한 첫번째 프로젝트
 
+- json-server 사용법
+  - Range: GET /posts?\_start=10&\_end=20, GET /posts?\_start=10&\_limit=10
+  - Paginate: GET /posts?\_page=1&\_per_page=25
+  - Sort: GET /posts?\_sort=id,-views
+  - Delete: DELETE /posts/1?\_dependent=comments
+
 ### `yarn start`
 
 Runs the app in the development mode.\
