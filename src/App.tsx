@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import classNames from 'classnames/bind'
-import styles from './App.module.scss'
-import FullScreenMessage from '@shared/FullScreenMessage'
 import Heading from '@components/sections/Heading'
 import Video from '@components/sections/Video'
 import { Wedding } from '@models/wedding'
+import FullScreenMessage from '@shared/FullScreenMessage'
+import classNames from 'classnames/bind'
+import { useEffect, useState } from 'react'
+import styles from './App.module.scss'
+import ImageGallery from './components/sections/ImageGallery'
 
 const cx = classNames.bind(styles)
 
@@ -41,12 +42,13 @@ function App() {
   if (error) return <FullScreenMessage type="error" />
   if (!wedding) return null
 
-  const { date } = wedding
+  const { date, galleryImages } = wedding
 
   return (
     <div className={cx('container')}>
       <Heading date={date} />
       <Video />
+      <ImageGallery images={galleryImages} />
     </div>
   )
 }
