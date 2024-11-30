@@ -31,6 +31,7 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/jest-dom", "npm:6.6.3"],\
           ["@testing-library/react", "virtual:efe1763f48a1a789144d819afe97cffa3346ee2f464e9c7652b26290d830b9a3e90e5496c21f0ef2e7f8a66e53bc8a549d7f1867c7213cd5156faefbd19468ef#npm:13.4.0"],\
           ["@testing-library/user-event", "virtual:efe1763f48a1a789144d819afe97cffa3346ee2f464e9c7652b26290d830b9a3e90e5496c21f0ef2e7f8a66e53bc8a549d7f1867c7213cd5156faefbd19468ef#npm:13.5.0"],\
+          ["@types/classnames", "npm:2.3.4"],\
           ["@types/jest", "npm:27.5.2"],\
           ["@types/node", "npm:16.18.121"],\
           ["@types/react", "npm:18.3.12"],\
@@ -5043,6 +5044,16 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/bonjour", "npm:3.5.13"],\
           ["@types/node", "npm:22.10.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/classnames", [\
+      ["npm:2.3.4", {\
+        "packageLocation": "../../../.yarn/berry/cache/@types-classnames-npm-2.3.4-2ce478bee3-10c0.zip/node_modules/@types/classnames/",\
+        "packageDependencies": [\
+          ["@types/classnames", "npm:2.3.4"],\
+          ["classnames", "npm:2.5.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14013,6 +14024,7 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/jest-dom", "npm:6.6.3"],\
           ["@testing-library/react", "virtual:efe1763f48a1a789144d819afe97cffa3346ee2f464e9c7652b26290d830b9a3e90e5496c21f0ef2e7f8a66e53bc8a549d7f1867c7213cd5156faefbd19468ef#npm:13.4.0"],\
           ["@testing-library/user-event", "virtual:efe1763f48a1a789144d819afe97cffa3346ee2f464e9c7652b26290d830b9a3e90e5496c21f0ef2e7f8a66e53bc8a549d7f1867c7213cd5156faefbd19468ef#npm:13.5.0"],\
+          ["@types/classnames", "npm:2.3.4"],\
           ["@types/jest", "npm:27.5.2"],\
           ["@types/node", "npm:16.18.121"],\
           ["@types/react", "npm:18.3.12"],\
