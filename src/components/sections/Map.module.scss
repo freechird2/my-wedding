@@ -1,0 +1,54 @@
+.wrap-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .txt-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  .txt-sub-title {
+    font-size: 22px;
+  }
+}
+
+.wrap-map {
+  position: relative;
+
+  .map {
+    width: 100%;
+    height: 250px;
+  }
+
+  .btn-find-way {
+    position: absolute;
+    border: 1px solid var(--black);
+    border-radius: 32px;
+    background-color: #fff;
+    padding: 8px 32px;
+    z-index: 2;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: var(--black);
+    font-size: 20px;
+  }
+}
+
+.wrap-waytocome {
+  margin: 16px 0;
+  line-height: 1.3;
+
+  .txt-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  li {
+    font-size: 18px;
+  }
+}
