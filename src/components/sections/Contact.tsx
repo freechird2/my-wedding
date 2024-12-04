@@ -15,7 +15,7 @@ const Contact = ({
   bride: Wedding['bride']
 }) => {
   return (
-    <Section>
+    <Section title="연락처 및 마음 전하실 곳">
       <Accordion label="신랑측">
         <ContactInfo
           name={groom.name}

@@ -11,6 +11,7 @@ import classNames from 'classnames/bind'
 import { useEffect, useState } from 'react'
 import styles from './App.module.scss'
 import Contact from '@components/sections/Contact'
+import Share from '@components/sections/Share'
 
 const cx = classNames.bind(styles)
 
@@ -72,6 +73,7 @@ function App() {
       <Calendar date={date} />
       <Map location={location} />
       <Contact groom={groom} bride={bride} />
+      <Share groomName={groom.name} brideName={bride.name} date={date} />
     </div>
   )
 }
