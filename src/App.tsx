@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react'
 import styles from './App.module.scss'
 import Contact from '@components/sections/Contact'
 import Share from '@components/sections/Share'
+import AttendCountModal from '@components/AttendCountModal'
 
 const cx = classNames.bind(styles)
 
@@ -19,6 +20,7 @@ function App() {
   const [wedding, setWedding] = useState<Wedding | null>(null) // 1. wedding 데이터 호출
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
     setLoading(true)
@@ -59,6 +61,12 @@ function App() {
 
   return (
     <div className={cx('container')}>
+      <button
+        style={{ position: 'fixed', top: 0 }}
+        onClick={() => setCount(count + 1)}
+      >
+        + {count}
+      </button>
       <Heading date={date} />
       <Video />
       <Intro
@@ -74,6 +82,22 @@ function App() {
       <Map location={location} />
       <Contact groom={groom} bride={bride} />
       <Share groomName={groom.name} brideName={bride.name} date={date} />
+      <AttendCountModal wedding={wedding} />
+      {/* <Modal
+        open={true}
+        title="현재 참석자"
+        body={
+          <div>
+            <input />
+          </div>
+        }
+        onLeftButtonClick={() => {
+          console.log('left')
+        }}
+        onRightButtonClick={() => {
+          console.log('right')
+        }}
+      /> */}
     </div>
   )
 }

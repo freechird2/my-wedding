@@ -1,6 +1,6 @@
 import Section from '@shared/Section'
 import classNames from 'classnames/bind'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ImageViewer from '../imageViewer'
 
 import styles from './ImageGallery.module.scss'
@@ -30,7 +30,10 @@ const ImageGallery = ({ images }: { images: string[] }) => {
               className={cx('wrap-image')}
               onClick={() => handleSelectedIndex(index)}
             >
-              <img src={image} alt="wedding" />
+              <picture>
+                <source srcSet={`${image}.webp`} type="image/webp" />
+                <img src={`${image}.jpg`} alt="wedding" />
+              </picture>
             </li>
           ))}
         </ul>
