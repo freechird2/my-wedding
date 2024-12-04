@@ -10,6 +10,7 @@ import FullScreenMessage from '@shared/FullScreenMessage'
 import classNames from 'classnames/bind'
 import { useEffect, useState } from 'react'
 import styles from './App.module.scss'
+import Contact from '@components/sections/Contact'
 
 const cx = classNames.bind(styles)
 
@@ -21,7 +22,7 @@ function App() {
   useEffect(() => {
     setLoading(true)
 
-    fetch('http://localhost:8888/wedding')
+    fetch('http://192.168.100.204:8888/wedding')
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to fetch wedding data')
@@ -70,6 +71,7 @@ function App() {
       <ImageGallery images={galleryImages} />
       <Calendar date={date} />
       <Map location={location} />
+      <Contact groom={groom} bride={bride} />
     </div>
   )
 }
