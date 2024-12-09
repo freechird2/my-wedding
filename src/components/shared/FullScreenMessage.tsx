@@ -9,6 +9,7 @@ interface FullScreenMessageProps {
 }
 
 const FullScreenMessage = ({ type }: FullScreenMessageProps) => {
+  console.log('full screen message')
   return (
     <div className={cx('container')}>
       {type === 'loading' ? (

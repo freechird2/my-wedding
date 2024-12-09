@@ -12,39 +12,15 @@ import { useEffect, useState } from 'react'
 import styles from './App.module.scss'
 import Contact from '@components/sections/Contact'
 import Share from '@components/sections/Share'
+import AttendCountModal from '@components/AttendCountModal'
+import { getWedding } from './api/wedding'
+import useWedding from './hooks/useWedding'
 
 const cx = classNames.bind(styles)
 
 function App() {
-  const [wedding, setWedding] = useState<Wedding | null>(null) // 1. wedding 데이터 호출
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+  const { wedding, error } = useWedding()
 
-  useEffect(() => {
-    setLoading(true)
-
-    fetch('http://192.168.100.204:8888/wedding')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Failed to fetch wedding data')
-        }
-
-        return res.json()
-      })
-      .then((data) => {
-        console.log(data)
-        setWedding(data)
-      })
-      .catch((err) => {
-        console.error(err)
-        setError(true)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-  }, [])
-
-  if (loading) return <FullScreenMessage type="loading" />
   if (error) return <FullScreenMessage type="error" />
   if (!wedding) return null
 
@@ -74,6 +50,22 @@ function App() {
       <Map location={location} />
       <Contact groom={groom} bride={bride} />
       <Share groomName={groom.name} brideName={bride.name} date={date} />
+      <AttendCountModal wedding={wedding} />
+      {/* <Modal
+        open={true}
+        title="현재 참석자"
+        body={
+          <div>
+            <input />
+          </div>
+        }
+        onLeftButtonClick={() => {
+          console.log('left')
+        }}
+        onRightButtonClick={() => {
+          console.log('right')
+        }}
+      /> */}
     </div>
   )
 }

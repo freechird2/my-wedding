@@ -2,6 +2,7 @@ import classNames from 'classnames/bind'
 import { useEffect } from 'react'
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import Dimmed from '@shared/Dimmed'
 import styles from './ImageViewer.module.scss'
 import './swiper.css'
 
@@ -32,7 +33,7 @@ const ImageViewer = ({
 
   if (!open) return null
   return (
-    <div className={cx('dimmed')}>
+    <Dimmed>
       <CloseButton className={cx('icon-close')} onClose={onClose} />
       <Swiper
         spaceBetween={20}
@@ -42,11 +43,14 @@ const ImageViewer = ({
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <img src={image} alt="wedding" />
+            <picture>
+              <img src={`${image}.jpg`} alt="wedding" />
+              <source srcSet={`${image}.webp`} type="image/webp" />
+            </picture>
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </Dimmed>
   )
 }
 
