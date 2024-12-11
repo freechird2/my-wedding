@@ -1,25 +1,38 @@
+import AttendCountModal from '@components/AttendCountModal'
 import Calendar from '@components/sections/Calendar'
+import Contact from '@components/sections/Contact'
 import Heading from '@components/sections/Heading'
 import ImageGallery from '@components/sections/ImageGallery'
 import Intro from '@components/sections/Intro'
 import Invitation from '@components/sections/Invitation'
 import Map from '@components/sections/Map'
+import Share from '@components/sections/Share'
 import Video from '@components/sections/Video'
-import { Wedding } from '@models/wedding'
 import FullScreenMessage from '@shared/FullScreenMessage'
 import classNames from 'classnames/bind'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import styles from './App.module.scss'
-import Contact from '@components/sections/Contact'
-import Share from '@components/sections/Share'
-import AttendCountModal from '@components/AttendCountModal'
-import { getWedding } from './api/wedding'
 import useWedding from './hooks/useWedding'
+import { createScrollmeter } from './lib/js-scrollmeter/lib'
 
 const cx = classNames.bind(styles)
 
 function App() {
   const { wedding, error } = useWedding()
+
+  useEffect(() => {
+    if (!wedding) return
+    createScrollmeter({
+      targetId: 'scrollmeter',
+      useTimeline: true,
+      useTooltip: true,
+      usePreview: true,
+      tooltipOptions: {
+        fontSize: 16,
+        fontColor: '#fff',
+      },
+    })
+  }, [wedding])
 
   if (error) return <FullScreenMessage type="error" />
   if (!wedding) return null
@@ -34,7 +47,7 @@ function App() {
   } = wedding
 
   return (
-    <div className={cx('container')}>
+    <div className={cx('container')} id="scrollmeter">
       <Heading date={date} />
       <Video />
       <Intro

@@ -16,7 +16,7 @@ const Section = ({
 }) => {
   return (
     <div className={cx(['container', className])}>
-      {title && <div className={cx('txt-title')}>{title}</div>}
+      {title && <h1 className={cx('txt-title')}>{title}</h1>}
       {children}
     </div>
   )
