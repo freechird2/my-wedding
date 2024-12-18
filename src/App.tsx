@@ -8,33 +8,15 @@ import Invitation from '@components/sections/Invitation'
 import Map from '@components/sections/Map'
 import Share from '@components/sections/Share'
 import Video from '@components/sections/Video'
-import FullScreenMessage from '@shared/FullScreenMessage'
 import classNames from 'classnames/bind'
-import { useEffect } from 'react'
 import styles from './App.module.scss'
 import useWedding from './hooks/useWedding'
-import { createScrollmeter } from './lib/js-scrollmeter/lib'
 
 const cx = classNames.bind(styles)
 
 function App() {
-  const { wedding, error } = useWedding()
+  const { wedding } = useWedding()
 
-  useEffect(() => {
-    if (!wedding) return
-    createScrollmeter({
-      targetId: 'scrollmeter',
-      useTimeline: true,
-      useTooltip: true,
-      usePreview: true,
-      tooltipOptions: {
-        fontSize: 16,
-        fontColor: '#fff',
-      },
-    })
-  }, [wedding])
-
-  if (error) return <FullScreenMessage type="error" />
   if (!wedding) return null
 
   const {
@@ -47,7 +29,7 @@ function App() {
   } = wedding
 
   return (
-    <div className={cx('container')} id="scrollmeter">
+    <div className={cx('container')}>
       <Heading date={date} />
       <Video />
       <Intro
